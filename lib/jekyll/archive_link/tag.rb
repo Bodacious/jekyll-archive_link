@@ -5,15 +5,18 @@ module Jekyll
     require "liquid"
     require_relative "url"
     class Tag < Liquid::Block
-      attr_reader :url
+      attr_reader :link_text, :url
+
+      def initialize(tag_name, link_text, tokens)
+        super
+        @link_text = link_text
+      end
 
       def render(context)
-        @url = super.to_s.strip
+        @url = super(context).to_s.strip
         Jekyll::ArchiveLink.debug("Render called: #{@url}")
 
-        <<~HTML
-          <a href="#{archive_url}">Archive link</a>
-        HTML
+        %[<a href="#{archive_url}">#{link_text}</a>]
       end
 
       def archive_url
