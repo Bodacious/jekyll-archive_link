@@ -32,16 +32,16 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "faraday"
-  spec.add_dependency "faraday-http-cache"
-  spec.add_dependency "jekyll"
-  spec.add_dependency "liquid"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "rubocop-performance"
-  spec.add_development_dependency "rubocop-rake"
-  spec.add_development_dependency "rubocop-rspec"
-  spec.add_development_dependency "webmock"
+  spec.add_dependency "faraday", "~> 2.3"
+  spec.add_dependency "faraday-http-cache", "~> 2.4"
+  spec.add_dependency "jekyll", "~> 4.0"
+  spec.add_dependency "liquid", "~> 4.0"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.11"
+  spec.add_development_dependency "rubocop", "~> 1.31"
+  spec.add_development_dependency "rubocop-performance", "~> 1.14"
+  spec.add_development_dependency "rubocop-rake", "~> 0.6"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.12"
+  spec.add_development_dependency "webmock", "~> 3.14"
   spec.metadata["rubygems_mfa_required"] = "true"
 end
