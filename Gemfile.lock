@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-archive_link (0.1.0)
+    jekyll-archive_link (0.2.0)
       faraday (~> 2.3)
       faraday-http-cache (~> 2.4)
       jekyll (~> 4.0)
