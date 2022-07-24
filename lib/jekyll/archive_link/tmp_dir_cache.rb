@@ -5,7 +5,7 @@ require "fileutils"
 module Jekyll
   module ArchiveLink
     class TmpDirCache
-      TMP_DIR = "./tmp/jekyll-archive-link/cache"
+      TMP_DIR = "./tmp/jekyll-archive_link/cache"
 
       def read(url)
         key = cache_key(url)
@@ -23,8 +23,8 @@ module Jekyll
         Jekyll::ArchiveLink.debug "Cache write: #{url}, value: #{value}"
         key = cache_key(url)
         path = path_for_file_with_key(key)
-        FileUtils.mkdir_p(TMP_DIR) unless Dir.exist?(TMP_DIR)
-        File.open(path, "wb") { |file| file.write(value) }
+        FileUtils.mkdir_p(TMP_DIR)
+        File.binwrite(path, value)
       end
 
       def delete(url)

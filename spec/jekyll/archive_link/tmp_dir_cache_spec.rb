@@ -5,7 +5,7 @@ require "rspec"
 RSpec.describe Jekyll::ArchiveLink::TmpDirCache do
   let(:cache) { described_class.new }
   before do
-    FileUtils.rm_rf("./tmp/jekyll-archive-link/cache")
+    FileUtils.rm_rf("./tmp/jekyll-archive_link/cache")
   end
 
   describe "#write" do
@@ -13,7 +13,7 @@ RSpec.describe Jekyll::ArchiveLink::TmpDirCache do
       expect do
         cache.write("cache_key", "{}")
       end.to change {
-        Dir["./tmp/jekyll-archive-link/cache/*"].count
+        Dir["./tmp/jekyll-archive_link/cache/*"].count
       }.by(1)
     end
   end

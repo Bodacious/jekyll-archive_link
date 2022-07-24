@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "lib/jekyll/archive_link/version"
+$LOAD_PATH << File.expand_path("lib", __dir__)
+
+require "jekyll/archive_link/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-archive_link"
@@ -24,11 +26,9 @@ Gem::Specification.new do |spec|
   # into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject do |f|
-      f.match(%r{\A(?:test|spec|features)/})
+      f.match(%r{\A(?:spec)/})
     end
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
@@ -36,8 +36,12 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday-http-cache"
   spec.add_dependency "jekyll"
   spec.add_dependency "liquid"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rake"
   spec.add_development_dependency "rubocop-rspec"
+  spec.add_development_dependency "webmock"
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

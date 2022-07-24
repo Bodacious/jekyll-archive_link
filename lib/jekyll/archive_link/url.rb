@@ -5,6 +5,7 @@ module Jekyll
     require "faraday"
     require "faraday-http-cache"
     require_relative "tmp_dir_cache"
+    require_relative "invalid_url"
 
     class URL
       ARCHIVE_HOST = "https://web.archive.org"
@@ -33,17 +34,26 @@ module Jekyll
         @url = url
       end
 
+      # rubocop:disable Metrics/MethodLength
       def latest_archive_url
         Jekyll::ArchiveLink.debug("latest_archive_url")
-        if url.start_with?(ARCHIVE_HOST)
-          Jekyll::ArchiveLink.debug("URL is already an archive link: #{url}")
-          return url
-        elsif url.empty?
+        if url.empty?
           Jekyll::ArchiveLink.debug("URL is blank")
           return ""
         end
+
+        unless URI.parse(url).is_a?(URI::HTTP)
+          raise InvalidURL, "#{url} doesn't look like an archiveable URL"
+        end
+
+        if url.start_with?(ARCHIVE_HOST)
+          Jekyll::ArchiveLink.debug("URL is already an archive link: #{url}")
+          return url
+        end
+
         memento_location
       end
+      # rubocop:enable Metrics/MethodLength
 
       private
 

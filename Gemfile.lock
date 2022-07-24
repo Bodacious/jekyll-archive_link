@@ -15,6 +15,8 @@ GEM
     ast (2.4.2)
     colorator (1.1.0)
     concurrent-ruby (1.1.10)
+    crack (0.4.5)
+      rexml
     diff-lcs (1.5.0)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
@@ -28,6 +30,7 @@ GEM
     faraday-net_http (2.0.3)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
+    hashdiff (1.0.1)
     http_parser.rb (0.8.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
@@ -114,18 +117,23 @@ GEM
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.8.0)
+    webmock (3.14.0)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
   jekyll-archive_link!
-  rake (~> 13.0)
-  rspec (~> 3.0)
-  rubocop (~> 1.7)
+  rake
+  rspec
+  rubocop
   rubocop-performance
   rubocop-rake
   rubocop-rspec
+  webmock
 
 BUNDLED WITH
    2.3.12
