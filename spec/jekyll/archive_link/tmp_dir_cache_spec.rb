@@ -24,7 +24,7 @@ RSpec.describe Jekyll::ArchiveLink::TmpDirCache do
     end
 
     it "returns cached JSON if available" do
-      cache.write("cache_key", ' { "key": "value" } ')
+      cache.write("cache_key", %[{"key": "value"}])
       expect(cache.read("cache_key")).to eql({ "key" => "value" })
     end
   end

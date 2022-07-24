@@ -13,6 +13,10 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "[]"
+
 Layout/LineLength:
   Max: 80
 
