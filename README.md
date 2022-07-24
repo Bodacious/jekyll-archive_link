@@ -1,28 +1,36 @@
-# Jekyll::Archive::Link
+# Jekyll::ArchiveLink
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll/archive/link`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Adds [InternetArchive Wayback Machine](https://archive.org) links for a given URL. Useful for preserving access to content on other sites that you do not control.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'jekyll-archive-link'
+group :jekyll_plugins do
+  gem 'jekyll-archive_link'
+end
 ```
 
-And then execute:
+Install via `$ bundle install`.
 
-    $ bundle install
+And then add this line to your Jekyll config file:
 
-Or install it yourself as:
+``` yaml
+plugins:
+  - jekyll-archive_link
+```
 
-    $ gem install jekyll-archive-link
 
 ## Usage
 
-TODO: Write usage instructions here
+To add an archive link to your Jekyll pages, embed the following view tag:
+
+``` liquid
+{% archive_url_link %}
+  {{ page.content_url }} <!-- Whatever attribute you use to define URLs -->
+{% endarchive_url_link %}
+```
 
 ## Development
 
@@ -32,7 +40,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jekyll-archive-link.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bodacious/jekyll-archive_link.
 
 ## License
 
