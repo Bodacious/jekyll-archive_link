@@ -27,7 +27,7 @@ plugins:
 To add an archive link to your Jekyll pages, embed the following view tag:
 
 ``` liquid
-{% archive_url_link %}
+{% archive_url_link click me %}
   {{ page.content_url }} <!-- Whatever attribute you use to define URLs -->
 {% endarchive_url_link %}
 ```
